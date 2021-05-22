@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://connectors/odyseeconnector_ui.gd" type="Script" id=1]
+
+[node name="OdyseeConnectorUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 1280.0
+margin_bottom = 692.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "To connect to Odysee. Get your channels claim id from its about page and paste it into the Channel Claim id box."
+text = "To connect to Odysee. Get your channels claim id from its about page and paste it into the Channel Claim id box."
+selection_enabled = true
+
+[node name="MarginContainerClientId" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 696.0
+margin_right = 1280.0
+margin_bottom = 720.0
+
+[node name="ClaimId" type="LineEdit" parent="VBoxContainer/MarginContainerClientId"]
+margin_right = 1280.0
+margin_bottom = 24.0
+clear_button_enabled = true
+placeholder_text = "Channel Claim ID"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="meta_clicked" from="VBoxContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
